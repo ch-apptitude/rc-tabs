@@ -58,6 +58,11 @@ export default class Tabs extends React.Component {
     if (this.tabBar.props.onTabClick) {
       this.tabBar.props.onTabClick(activeKey);
     }
+
+    if (this.props.tabWillChange && !this.props.tabWillChange(activeKey)) {
+      return;
+    }
+
     this.setActiveKey(activeKey);
   }
 
@@ -77,9 +82,9 @@ export default class Tabs extends React.Component {
   setActiveKey = (activeKey) => {
     if (this.state.activeKey !== activeKey) {
       if (!('activeKey' in this.props)) {
-        this.setState({
+        this.setState(() => ({
           activeKey,
-        });
+        }));
       }
       this.props.onChange(activeKey);
     }
@@ -168,6 +173,7 @@ Tabs.propTypes = {
   renderTabBar: PropTypes.func.isRequired,
   renderTabContent: PropTypes.func.isRequired,
   onChange: PropTypes.func,
+  tabWillChange: PropTypes.func,
   children: PropTypes.any,
   prefixCls: PropTypes.string,
   className: PropTypes.string,
@@ -183,6 +189,7 @@ Tabs.defaultProps = {
   onChange: noop,
   tabBarPosition: 'top',
   style: {},
+  tabWillChange: () => (true),
 };
 
 Tabs.TabPane = TabPane;
