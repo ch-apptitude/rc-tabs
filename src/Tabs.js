@@ -193,7 +193,6 @@ Tabs.defaultProps = {
   onChange: noop,
   tabBarPosition: 'top',
   style: {},
-  tabWillChange: () => (true),
 };
 
 Tabs.TabPane = TabPane;

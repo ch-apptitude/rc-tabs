@@ -1258,10 +1258,7 @@ Tabs.defaultProps = {
   destroyInactiveTabPane: false,
   onChange: noop,
   tabBarPosition: 'top',
-  style: {},
-  tabWillChange: function tabWillChange() {
-    return true;
-  }
+  style: {}
 };
 
 Tabs.TabPane = __WEBPACK_IMPORTED_MODULE_3__TabPane__["a" /* default */];

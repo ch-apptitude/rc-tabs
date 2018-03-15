@@ -217,10 +217,7 @@ Tabs.defaultProps = {
   destroyInactiveTabPane: false,
   onChange: noop,
   tabBarPosition: 'top',
-  style: {},
-  tabWillChange: function tabWillChange() {
-    return true;
-  }
+  style: {}
 };
 
 Tabs.TabPane = TabPane;
